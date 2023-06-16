@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  background-color: black;
+}
+a {
+  color: initial;
+  text-decoration: none;
+}
+
+body {
+  background: linear-gradient(to right, #42275a, #734b6d);
+}
+.framevideo {
+  border: none;
+  width: 800px;
+  height: 500px;
+}
+@media (max-width: 900px) {
+  .framevideo {
+    width: 500px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .framevideo {
+    width: 350px;
+    height: 200px;
+  }
+}
+
+.imgMovie {
+  width: 400px;
+}
+@media (max-width: 900px) {
+  .imgMovie {
+    width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .imgMovie {
+    width: 300px;
+  }
+}
+
