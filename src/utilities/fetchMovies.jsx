@@ -14,7 +14,7 @@ const fetchMovies = async (setMovies) => {
       return { ...item, saved: false };
     });
     console.log(changedMovies);
-
+    localStorage.setItem("movies", JSON.stringify(changedMovies));
     setMovies(changedMovies);
   } catch (error) {
     console.error(error);
