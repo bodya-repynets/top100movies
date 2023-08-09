@@ -31,22 +31,24 @@ const AppContext = () => {
     if (localMovies) {
       setMovies(localMovies);
     } else {
-      fetchMovies();
+      fetchMovies(setMovies);
     }
   }, []);
 
   useEffect(() => {
-    const randomNumber = Math.floor(Math.random() * 100);
-    const randomItem = movies.find((item) => item.rank === randomNumber);
-    setRandomMovie(randomItem);
-    const num = movies.reduce((sum, curr) => {
-      if (curr.saved === true) {
-        return sum + 1;
-      } else {
-        return sum;
-      }
-    }, 0);
-    setSavedAmount(num);
+    if (movies.length > 0) {
+      const randomNumber = Math.floor(Math.random() * 100);
+      const randomItem = movies.find((item) => item.rank === randomNumber);
+      setRandomMovie(randomItem);
+      const num = movies.reduce((sum, curr) => {
+        if (curr.saved === true) {
+          return sum + 1;
+        } else {
+          return sum;
+        }
+      }, 0);
+      setSavedAmount(num);
+    }
   }, [movies]);
 
   useEffect(() => {

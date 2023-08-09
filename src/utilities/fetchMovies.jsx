@@ -7,14 +7,15 @@ const options = {
     "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
   },
 };
-const fetchMovies = async () => {
+const fetchMovies = async (setMovies) => {
   try {
     const response = await axios.request(options);
-    const changedMovies=response.data.map(item=>{
-      return {...item, saved: false}
-  })
+    const changedMovies = response.data.map((item) => {
+      return { ...item, saved: false };
+    });
     console.log(changedMovies);
-    localStorage.setItem("movies", JSON.stringify(changedMovies));
+
+    setMovies(changedMovies);
   } catch (error) {
     console.error(error);
   }
